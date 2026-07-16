@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Test App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 80px auto;
+            text-align: center;
+            color: #222;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #2c7a2c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flask Test App (test_2 branch)</h1>
+    <p>Click the button to call the Flask API route.</p>
+    <button onclick="callApi()">Say Hello</button>
+    <div id="result"></div>
+
+    <script>
+        async function callApi() {
+            const res = await fetch("/api/hello");
+            const data = await res.json();
+            document.getElementById("result").innerText = data.message;
+        }
+    </script>
+</body>
+</html>
